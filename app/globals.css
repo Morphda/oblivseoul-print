@@ -85,16 +85,41 @@
  * ===================================================================== */
 html, body {
   font-family: var(--font-sans);
-  /* Apple HIG 정합: 본문은 자간 0 근처 + line-height 1.5-1.6 */
-  letter-spacing: -0.018em;
-  line-height: 1.55;
   word-break: keep-all;       /* W3C klreq 한글 줄바꿈 */
   text-spacing-trim: trim-start;
   color: var(--color-near-black);
   background: var(--color-off-white);
   font-weight: 400;
+  margin: 0;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─────────────────────────────────────────────────────
+ * 매체별 typography 분기 (single-source dual-output)
+ * ─────────────────────────────────────────────────── */
+
+/* WEB (screen) — Apple HIG 정합: 호흡 자간 + 큰 line-height */
+@media screen {
+  html, body {
+    letter-spacing: -0.012em;
+    line-height: 1.7;
+  }
+}
+
+/* PRINT — 매거진 압축 자간 + 빡빡한 line-height */
+@media print {
+  html, body {
+    letter-spacing: -0.018em;
+    line-height: 1.55;
+  }
+}
+
+/* 인쇄 페이지 (.a4-page) 안에서는 항상 인쇄 typography */
+.a4-page,
+.a4-page * {
+  letter-spacing: -0.018em;
 }
 
 /* =====================================================================
