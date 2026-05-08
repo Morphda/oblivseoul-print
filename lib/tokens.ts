@@ -24,7 +24,7 @@ export const colors = {
 export const fonts = {
   sans: '"Wanted Sans Variable", "Pretendard Variable", system-ui, sans-serif',
   display: '"Cormorant Garamond Variable", "Times New Roman", serif',
-  mono: '"Fragment Mono", ui-monospace, "Courier New", monospace',
+  mono: '"JetBrains Mono Variable", ui-monospace, "Courier New", monospace',
 } as const;
 
 export const tracking = {

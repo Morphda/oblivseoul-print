@@ -4,17 +4,19 @@ import { orgInfo } from "@/lib/tokens";
 /**
  * OBLIV Seoul Origin — 환자용 인쇄 1-pager (A4 portrait)
  *
- * 추출 design tokens 기반 reference 컴포넌트.
- * 매거진 톤 (-0.05em tracking, 1.3em leading, Wanted Sans Black + Cormorant Italic display).
- * 종로 niche · 자연주의 · 일본식 미니멀.
+ * 정합:
+ * - oblivseoul 매거진 톤 (cream + near-black + russet, Cormorant italic display)
+ * - Apple HIG typography (본문 Regular 400 / 제목 SemiBold 600 / 큰 디스플레이 Bold 700, Black 900 절제)
+ * - Apple HIG layout (white space hierarchy, 8pt grid, deference to content)
+ * - restrained typography: font family 2개 (Wanted Sans + Cormorant), size 단계 4개
  */
 export default function OblivseoulOnePager() {
   return (
-    <A4Page className="bg-off-white">
+    <A4Page>
       {/* ───────────── HERO ───────────── */}
       <section
         className="relative w-full overflow-hidden"
-        style={{ height: "118mm" }}
+        style={{ height: "120mm" }}
       >
         <img
           src="/assets/oblivseoul-hero.png"
@@ -22,76 +24,78 @@ export default function OblivseoulOnePager() {
           className="absolute inset-0 h-full w-full object-cover"
           style={{ objectPosition: "center 35%" }}
         />
-        {/* 어두운 그라디언트 — bottom 카피 가독성 */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(5,8,12,0.45) 0%, rgba(5,8,12,0.15) 35%, rgba(5,8,12,0.85) 100%)",
+              "linear-gradient(180deg, rgba(5,8,12,0.5) 0%, rgba(5,8,12,0.1) 30%, rgba(5,8,12,0.78) 100%)",
           }}
         />
 
-        {/* Top header strip */}
+        {/* Top header */}
         <header
           className="absolute left-0 right-0 top-0 flex items-center justify-between"
-          style={{ padding: "6mm 8mm" }}
+          style={{ padding: "8mm 12mm" }}
         >
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5">
             <img
               src="/assets/oblivseoul-logo.png"
-              alt="OBLIV Seoul logo"
-              className="h-6 w-6 object-contain"
-              style={{ filter: "invert(1) brightness(2)" }}
+              alt="OBLIV"
+              className="h-5 w-5 object-contain"
+              style={{ filter: "invert(1) brightness(2)", opacity: 0.92 }}
             />
             <span
-              className="text-cream"
               style={{
                 fontFamily: "var(--font-sans)",
-                fontWeight: 900,
-                fontSize: "10pt",
-                letterSpacing: "0.16em",
+                fontWeight: 600,
+                fontSize: "9.5pt",
+                letterSpacing: "0.22em",
                 textTransform: "uppercase",
+                color: "rgba(232, 217, 193, 0.92)",
               }}
             >
               OBLIV Seoul Origin
             </span>
           </div>
           <span
-            className="text-cream/80"
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "9pt",
-              letterSpacing: "0.04em",
+              fontSize: "8.5pt",
+              letterSpacing: "0.05em",
+              color: "rgba(232, 217, 193, 0.7)",
+              fontWeight: 400,
             }}
           >
             TEL {orgInfo.phoneDisplay}
           </span>
         </header>
 
-        {/* Hero copy — Cormorant Italic display + Wanted Sans Black */}
+        {/* Hero copy */}
         <div
           className="absolute bottom-0 left-0 right-0"
-          style={{ padding: "0 14mm 16mm" }}
+          style={{ padding: "0 14mm 18mm" }}
         >
           <p
-            className="text-cream/70 mb-3"
             style={{
               fontFamily: "var(--font-display)",
               fontStyle: "italic",
-              fontSize: "13pt",
-              letterSpacing: "-0.02em",
+              fontSize: "12pt",
+              letterSpacing: "0",
+              color: "rgba(232, 217, 193, 0.62)",
+              fontWeight: 400,
+              marginBottom: "6mm",
             }}
           >
-            The Architecture of Skin · 피부건축학
+            The Architecture of Skin
           </p>
           <h1
-            className="text-cream"
             style={{
               fontFamily: "var(--font-sans)",
-              fontWeight: 900,
-              fontSize: "44pt",
-              letterSpacing: "-0.06em",
-              lineHeight: 1.05,
+              fontWeight: 600,
+              fontSize: "32pt",
+              letterSpacing: "-0.04em",
+              lineHeight: 1.18,
+              color: "var(--color-cream)",
             }}
           >
             몸의 근본
@@ -99,11 +103,13 @@ export default function OblivseoulOnePager() {
               style={{
                 fontFamily: "var(--font-display)",
                 fontStyle: "italic",
-                fontWeight: 500,
-                color: "var(--color-cream)",
+                fontWeight: 400,
+                fontSize: "34pt",
+                letterSpacing: "-0.02em",
+                margin: "0 0.08em",
               }}
             >
-              {" "}Origin{" "}
+              Origin
             </span>
             부터<br />바로 세웁니다.
           </h1>
@@ -112,17 +118,20 @@ export default function OblivseoulOnePager() {
 
       {/* ───────────── IDENTITY STRIP ───────────── */}
       <section
-        className="bg-cream"
-        style={{ padding: "11mm 14mm 9mm" }}
+        style={{
+          background: "var(--color-cream)",
+          padding: "14mm 14mm 12mm",
+        }}
       >
-        <div className="flex items-baseline gap-3 mb-2">
+        <div className="flex items-baseline gap-4" style={{ marginBottom: "5mm" }}>
           <span
             style={{
               fontFamily: "var(--font-display)",
               fontStyle: "italic",
-              fontSize: "11pt",
+              fontWeight: 400,
+              fontSize: "10.5pt",
               color: "var(--color-russet)",
-              letterSpacing: "-0.02em",
+              letterSpacing: "0.01em",
             }}
           >
             Integrated Wellness
@@ -130,23 +139,25 @@ export default function OblivseoulOnePager() {
           <span
             style={{
               flex: 1,
-              borderTop: "1px solid var(--color-warm-gray)",
-              opacity: 0.5,
+              borderTop: "0.5px solid var(--color-warm-gray)",
+              opacity: 0.4,
+              transform: "translateY(-3px)",
             }}
           />
         </div>
         <h2
           style={{
             fontFamily: "var(--font-sans)",
-            fontWeight: 900,
-            fontSize: "20pt",
+            fontWeight: 600,
+            fontSize: "16pt",
             color: "var(--color-near-black)",
-            letterSpacing: "-0.05em",
-            lineHeight: 1.2,
-            marginBottom: "3mm",
+            letterSpacing: "-0.03em",
+            lineHeight: 1.35,
+            marginBottom: "5mm",
+            maxWidth: "150mm",
           }}
         >
-          피부건축학 기반의 통합 의료, <br />
+          피부건축학 기반의 통합 의료,<br />
           3박자 자가 회복 메커니즘.
         </h2>
         <p
@@ -155,8 +166,8 @@ export default function OblivseoulOnePager() {
             fontWeight: 400,
             fontSize: "9.5pt",
             color: "var(--color-mid-charcoal)",
-            letterSpacing: "-0.025em",
-            lineHeight: 1.55,
+            letterSpacing: "-0.012em",
+            lineHeight: 1.65,
             maxWidth: "165mm",
           }}
         >
@@ -168,10 +179,10 @@ export default function OblivseoulOnePager() {
       {/* ───────────── 진료 3-column ───────────── */}
       <section
         style={{
-          padding: "9mm 14mm 0",
+          padding: "12mm 14mm 0",
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "5mm",
+          gap: "6mm",
         }}
       >
         <ServiceCard
@@ -199,20 +210,23 @@ export default function OblivseoulOnePager() {
 
       {/* ───────────── FOOTER ───────────── */}
       <footer
-        className="absolute left-0 right-0 bottom-0 bg-near-black text-cream"
-        style={{ padding: "7mm 14mm" }}
+        className="absolute left-0 right-0 bottom-0"
+        style={{
+          background: "var(--color-near-black)",
+          padding: "9mm 14mm",
+        }}
       >
-        <div className="flex items-end justify-between">
+        <div className="flex items-end justify-between gap-6">
           <div>
             <p
               style={{
                 fontFamily: "var(--font-sans)",
-                fontWeight: 900,
-                fontSize: "9pt",
-                letterSpacing: "0.18em",
+                fontWeight: 600,
+                fontSize: "8.5pt",
+                letterSpacing: "0.24em",
                 textTransform: "uppercase",
                 color: "var(--color-cream)",
-                marginBottom: "1.5mm",
+                marginBottom: "2mm",
               }}
             >
               OBLIV Seoul Origin
@@ -221,10 +235,10 @@ export default function OblivseoulOnePager() {
               style={{
                 fontFamily: "var(--font-sans)",
                 fontWeight: 400,
-                fontSize: "8.5pt",
-                color: "var(--color-warm-gray)",
-                letterSpacing: "-0.02em",
-                lineHeight: 1.5,
+                fontSize: "8pt",
+                color: "rgba(173, 171, 170, 0.85)",
+                letterSpacing: "-0.005em",
+                lineHeight: 1.6,
               }}
             >
               {orgInfo.address}<br />
@@ -234,15 +248,16 @@ export default function OblivseoulOnePager() {
           <p
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "7pt",
-              color: "var(--color-warm-gray)",
+              fontSize: "6.5pt",
+              color: "rgba(173, 171, 170, 0.55)",
               letterSpacing: "0.04em",
-              maxWidth: "70mm",
+              maxWidth: "65mm",
               textAlign: "right",
-              lineHeight: 1.5,
+              lineHeight: 1.6,
+              fontWeight: 400,
             }}
           >
-            본 자료는 의료 정보 안내를 위한 자료이며,<br />
+            본 자료는 의료 정보 안내용이며,<br />
             진료 결과는 개인차가 있을 수 있습니다.
           </p>
         </div>
@@ -252,7 +267,7 @@ export default function OblivseoulOnePager() {
 }
 
 /* ===================================================================
- * 진료 영역 카드 — 3-column grid 셀
+ * 진료 영역 카드
  * =================================================================== */
 function ServiceCard({
   numeral,
@@ -270,13 +285,9 @@ function ServiceCard({
   return (
     <article
       style={{
-        background: "var(--color-off-white)",
-        border: "1px solid var(--color-warm-gray)",
-        borderColor: "rgba(173,171,170,0.4)",
-        padding: "5mm",
         display: "flex",
         flexDirection: "column",
-        gap: "3mm",
+        gap: "3.5mm",
       }}
     >
       <div
@@ -295,18 +306,19 @@ function ServiceCard({
             height: "100%",
             objectFit: "cover",
             objectPosition: "center",
-            filter: "saturate(0.9) brightness(0.95)",
+            filter: "saturate(0.92) brightness(0.97)",
           }}
         />
       </div>
 
-      <div className="flex items-baseline gap-2">
+      <div className="flex items-baseline gap-2.5">
         <span
           style={{
             fontFamily: "var(--font-mono)",
-            fontSize: "8pt",
+            fontSize: "7.5pt",
             color: "var(--color-russet)",
-            letterSpacing: "0.05em",
+            letterSpacing: "0.06em",
+            fontWeight: 400,
           }}
         >
           {numeral}
@@ -315,9 +327,10 @@ function ServiceCard({
           style={{
             fontFamily: "var(--font-display)",
             fontStyle: "italic",
+            fontWeight: 400,
             fontSize: "10pt",
             color: "var(--color-mid-charcoal)",
-            letterSpacing: "-0.02em",
+            letterSpacing: "0.005em",
           }}
         >
           {english}
@@ -327,11 +340,11 @@ function ServiceCard({
       <h3
         style={{
           fontFamily: "var(--font-sans)",
-          fontWeight: 900,
-          fontSize: "16pt",
+          fontWeight: 600,
+          fontSize: "13pt",
           color: "var(--color-near-black)",
-          letterSpacing: "-0.05em",
-          lineHeight: 1.15,
+          letterSpacing: "-0.03em",
+          lineHeight: 1.25,
         }}
       >
         {korean}
@@ -343,8 +356,8 @@ function ServiceCard({
           fontWeight: 400,
           fontSize: "8pt",
           color: "var(--color-mid-charcoal)",
-          letterSpacing: "-0.025em",
-          lineHeight: 1.55,
+          letterSpacing: "-0.005em",
+          lineHeight: 1.65,
           flex: 1,
         }}
       >

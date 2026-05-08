@@ -24,7 +24,7 @@
   /* ── 폰트 ──────────────────────────────────────────── */
   --font-sans: "Wanted Sans Variable", "Pretendard Variable", system-ui, -apple-system, sans-serif;
   --font-display: "Cormorant Garamond Variable", "Times New Roman", serif;
-  --font-mono: "Fragment Mono", ui-monospace, "Courier New", monospace;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "Courier New", monospace;
 
   /* ── 자간 (tracking) — oblivseoul 매거진 톤 -0.05em 우위 ── */
   --tracking-magazine-tight: -0.05em;
@@ -64,6 +64,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "JetBrains Mono Variable";
+  src: url("/fonts/JetBrainsMono-Variable.ttf") format("truetype-variations");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* =====================================================================
  * 인쇄 룰 — A4 portrait
  * ===================================================================== */
@@ -77,12 +85,14 @@
  * ===================================================================== */
 html, body {
   font-family: var(--font-sans);
-  letter-spacing: var(--tracking-magazine-tight);
-  line-height: var(--leading-magazine-body);
+  /* Apple HIG 정합: 본문은 자간 0 근처 + line-height 1.5-1.6 */
+  letter-spacing: -0.018em;
+  line-height: 1.55;
   word-break: keep-all;       /* W3C klreq 한글 줄바꿈 */
   text-spacing-trim: trim-start;
   color: var(--color-near-black);
   background: var(--color-off-white);
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
