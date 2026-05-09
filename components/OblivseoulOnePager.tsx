@@ -257,8 +257,7 @@ export default function OblivseoulOnePager() {
               fontWeight: 400,
             }}
           >
-            본 자료는 의료 정보 안내용이며,<br />
-            진료 결과는 개인차가 있을 수 있습니다.
+            {orgInfo.url}
           </p>
         </div>
       </footer>

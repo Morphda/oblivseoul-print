@@ -456,7 +456,7 @@ export default function OblivseoulLandingPage() {
               lineHeight: 1.7,
             }}
           >
-            본 페이지는 의료 정보 안내용이며, 진료 결과는 개인차가 있을 수 있습니다.
+            © OBLIV Seoul Origin
           </p>
         </div>
       </footer>
